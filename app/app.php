@@ -45,26 +45,24 @@
             }
         }
 
-            $output = "";
-            $output = $output .
-            "<h1>Your Car Dealership</h1>";
-                    if (empty($cars_matching_search)) {
-                    return
-                            "<h2>No matching result!</h2>";
-                      } else {
-                        foreach ($cars_matching_search as $car) {
-                            echo "<li>". $car->getMakeModel() . "</li>
-                            <ul>
-                                <li><img src=" . $car->getImage() ." width='300'></li>
-                                <li> $" . $car->getPrice() . "</li>
-                                <li> Miles:" . $car->getMiles() . "</li>
-                            </ul>";
-                        }
-                    }
+
+        $output = "";
+        $output .= "<h1>Car Dealership</h1>";
+            if (empty($cars_matching_search)) {
+                $output .= "<h2>No matching result!</h2>";
+              } else {
+                foreach ($cars_matching_search as $car) {
+                    $output .= "<li>". $car->getMakeModel() . "</li>
+                    <ul>
+                        <li><img src=" . $car->getImage() ." width='300'></li>
+                        <li> $" . $car->getPrice() . "</li>
+                        <li> Miles:" . $car->getMiles() . "</li>
+                    </ul>";
+                }
+            }
 
             return $output;
         });
 
     return $app;
-
 ?>
